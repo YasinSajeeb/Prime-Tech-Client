@@ -1,0 +1,12 @@
+.header-left a{
+    width: 25%;
+}
+.logo img{
+    width: 6%;
+}
+
+@media screen and (max-width: 576px){
+    .logo img{
+        width: 20%;
+    }
+}
