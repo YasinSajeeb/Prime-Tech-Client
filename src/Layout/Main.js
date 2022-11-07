@@ -17,9 +17,6 @@ const Main = () => {
                     <Col>
                     <Outlet></Outlet>
                     </Col>
-                    <Col lg="3">
-                    <RightSideNav></RightSideNav>
-                    </Col>
                 </Row>
             </Container>
         </div>
