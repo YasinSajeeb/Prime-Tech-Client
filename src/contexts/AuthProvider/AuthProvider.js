@@ -10,10 +10,10 @@ const auth = getAuth(app);
 
 const AuthProvider = ({children}) => {
 
-    const [ user, setUser ] = useState([]);
+    const [ user, setUser ] = useState(null);
 
     const providerLogin = (provider) =>{
-        return signInWithPopup(auth, provider)
+        return signInWithPopup(auth, provider);
     }
 
     const createUser = (email, password) =>{

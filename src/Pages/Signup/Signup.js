@@ -52,7 +52,7 @@ const Signup = () => {
         Submit
       </Button>
       </Form.Group>
-      <Form.Text className='text-danger'>
+      <Form.Text className='te xt-danger'>
         {error}
       </Form.Text>
       </Form>

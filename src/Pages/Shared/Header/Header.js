@@ -39,7 +39,7 @@ const Header = () => {
           </Nav>
           <Nav>
             {
-            user?.displayName ?
+            user?.uid ?
             <>
             <span>{user?.displayName}</span>
             <button onClick={handleLogOut} className='mx-2'>Log Out</button>
