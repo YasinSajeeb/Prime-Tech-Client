@@ -5,8 +5,8 @@ import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
-import { GoogleAuthProvider } from 'firebase/auth';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 const Login = () => {
@@ -41,13 +41,26 @@ const Login = () => {
 
     const googleProvider = new GoogleAuthProvider();
 
+    const githubProvider = new GithubAuthProvider();
+
     const handleGoogleSignIn = () =>{
         providerLogin(googleProvider)
         .then(result =>{
             const user = result.user;
             console.log(user);
+            navigate(from, {replace: true});
         })
         .catch(error => console.error(error))
+    }
+
+    const handleGithubSignIn = () =>{
+      providerLogin(githubProvider)
+      .then(result =>{
+        const user = result.user;
+        console.log(user);
+        navigate(from, {replace: true});
+      })
+      .catch(error => console.error(error))
     }
     return (
         <div>
@@ -55,7 +68,7 @@ const Login = () => {
             <Form onSubmit={handleSubmit} className='w-75 mx-auto p-3 shadow border mt-5 rounded'>
                 <div className='d-flex flex-column w-50 mx-auto'>
                 <Button onClick={handleGoogleSignIn} variant="outline-primary" className='mb-3'>Login with Google <FcGoogle></FcGoogle> </Button>
-                <Button variant="outline-dark">Login with GitHub <FaGithub></FaGithub> </Button>
+                <Button onClick={handleGithubSignIn} variant="outline-dark">Login with GitHub <FaGithub></FaGithub> </Button>
                 </div>
                 <p className='text-center my-3 text-muted'>or Login by Email Address</p>
       <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -78,6 +91,7 @@ const Login = () => {
       <Form.Text className='text-danger'>
         {error}
       </Form.Text>
+      <span className='d-block text-muted'>New to the website? Please <Link to='/signup'>Sign up</Link></span>
     </Form>
         </div>
     );
