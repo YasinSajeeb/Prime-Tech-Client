@@ -22,7 +22,7 @@ const Header = () => {
 
     return (
         <div>
-             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+             <Navbar collapseOnSelect expand="lg" bg="light" variant="light" className='mb-4'>
       <Container className='header'>
         <Row>
        <Col> <Navbar.Brand className='logo'> <img src={logo} alt="" srcset="" /> <Link to="/"> Prime<strong>TECH</strong></Link> 
