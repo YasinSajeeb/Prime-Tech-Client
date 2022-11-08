@@ -1,9 +1,9 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { Outlet } from 'react-router-dom';
+import Login from '../Pages/Login/Login';
 import Header from '../Pages/Shared/Header/Header';
 import LeftSideNav from '../Pages/Shared/LeftSideNav/LeftSideNav';
-import RightSideNav from '../Pages/Shared/RIghtSideNav/RightSideNav';
 
 const Main = () => {
     return (
@@ -19,6 +19,7 @@ const Main = () => {
                     </Col>
                 </Row>
             </Container>
+            
         </div>
     );
 };

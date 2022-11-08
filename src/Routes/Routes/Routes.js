@@ -8,6 +8,8 @@ import Courses from "../../Pages/Courses/Courses/Courses";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Faq from "../../Pages/FAQ/Faq";
 import Home from "../../Pages/Home/Home/Home";
+import Login from "../../Pages/Login/Login";
+import Signup from "../../Pages/Signup/Signup";
 
 export const routes = createBrowserRouter([
     {
@@ -43,6 +45,14 @@ export const routes = createBrowserRouter([
                 path: '/courses/premium/:id',
                 element: <PremiumCourse></PremiumCourse>,
                 loader: ({params})=>fetch(`http://localhost:5000/courses/${params.id}`)
+            },
+            {
+                path: "/login",
+                element: <Login></Login>
+            },
+            {
+                path: "/signup",
+                element: <Signup></Signup>
             },
             {
                 path: '*',

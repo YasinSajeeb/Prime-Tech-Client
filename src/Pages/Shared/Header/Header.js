@@ -1,9 +1,10 @@
 import React from 'react';
 import { useContext } from 'react';
-import { Col, Row } from 'react-bootstrap';
+import { Col, Image, Row } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/logo/Logo.png'
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
@@ -11,7 +12,14 @@ import '../Header/header.css';
 
 const Header = () => {
 
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = ()=>{
+    logOut()
+    .then( ()=> {})
+    .catch( error => console.error(error))
+  }
+
     return (
         <div>
              <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
@@ -30,12 +38,29 @@ const Header = () => {
             
           </Nav>
           <Nav>
-            <Link to="#deets">More deets</Link>
-            <Link eventKey={2} to="#memes">
-              Dank memes
-            </Link>
+            {
+            user?.displayName ?
+            <>
+            <span>{user?.displayName}</span>
+            <button onClick={handleLogOut} className='mx-2'>Log Out</button>
+            </>
+          : <>
+          <Link to="/login">Login</Link>
+          <Link eventKey={2} to="/signup">Signup</Link>
+            </>
+          }
+            <Link>
+        {user?.photoURL ?
+        <Image
+        style={{height: '30px'}} roundedCircle
+        src={user?.photoURL}>
+        </Image>
+        : <FaUser></FaUser>
+        }
+        </Link>
           </Nav>
         </Navbar.Collapse>
+        
         </Col>
         </Row>
       </Container>
