@@ -27,7 +27,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/courses/:id',
                 element: <CourseDetails></CourseDetails>,
-                loader: ({params})=>fetch(`http://localhost:5000/courses/${params.id}`)
+                loader: ({params})=>fetch(`https://prime-tech-server.vercel.app/courses/${params.id}`)
             },
             {
                 path: 'blog',
@@ -40,7 +40,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/courses/premium/:id',
                 element: <PrivateRoute><PremiumCourse></PremiumCourse></PrivateRoute>,
-                loader: ({params})=>fetch(`http://localhost:5000/courses/${params.id}`)
+                loader: ({params})=>fetch(`https://prime-tech-server.vercel.app/courses/${params.id}`)
             },
             {
                 path: "/login",
