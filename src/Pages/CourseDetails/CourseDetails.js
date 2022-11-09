@@ -13,7 +13,7 @@ const CourseDetails = () => {
             <div className='d-flex justify-content-between'>
             <h3>{name}</h3>
             <div className='text-center'>
-                
+
                 {/* Pdf part */}
                 <h5 className='text-muted'>Total Download: {totalDownload}</h5>
                 <Pdf targetRef={ref} filename="code-example.pdf">
@@ -22,7 +22,7 @@ const CourseDetails = () => {
                 }</Pdf></div>
 
             </div>
-            <img src={image} alt="" />
+            <img src={image} alt="" className='w-100'/>
             <h3>Details:</h3>
             <p>{description}</p>
             <Link to={`/courses/premium/${id}`}><Button>Get Premium Access</Button></Link>
