@@ -8,6 +8,7 @@ const Course = ({course}) => {
   const {image, name, price, id} = course;
     return (
         <div>
+          {/* Course Card */}
             <Col>
           <Card className='my-3 p-2'>
             <Card.Img variant="top" src={image} style={{height: '250px'}}/>

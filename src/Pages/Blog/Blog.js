@@ -6,12 +6,15 @@ const Blog = () => {
     return (
         <div>
             <Accordion defaultActiveKey="0" flush>
+              {/* First Question */}
       <Accordion.Item eventKey="0">
         <Accordion.Header> <strong>What is cors?</strong></Accordion.Header>
         <Accordion.Body>
         Cross-origin resource sharing is a mechanism that allows restricted resources on a web page to be requested from another domain outside the domain from which the first resource was served. A web page may freely embed cross-origin images, stylesheets, scripts, iframes, and videos.
         </Accordion.Body>
       </Accordion.Item>
+
+      {/* Second Question */}
       <Accordion.Item eventKey="1">
         <Accordion.Header> <strong>Why are you using firebase? What other options do you have to implement authentication?</strong> </Accordion.Header>
         <Accordion.Body>
@@ -19,12 +22,16 @@ const Blog = () => {
         Usually, authentication by a server entails the use of a user name and password. Other ways to authenticate can be through cards, retina scans, voice recognition, and fingerprints.
         </Accordion.Body>
       </Accordion.Item>
+
+      {/* Third Question */}
       <Accordion.Item eventKey="2">
         <Accordion.Header> <strong>How does the private route work?</strong></Accordion.Header>
         <Accordion.Body>
         The react private route component renders child components ( children ) if the user is logged in. If not logged in the user is redirected to the /login page with the return url passed in the location state property.
         </Accordion.Body>
       </Accordion.Item>
+
+      {/* Fourth Question */}
       <Accordion.Item eventKey="3">
         <Accordion.Header><strong>What is Node? How does Node work?</strong></Accordion.Header>
         <Accordion.Body>

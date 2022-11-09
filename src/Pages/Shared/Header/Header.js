@@ -1,6 +1,6 @@
 import React from 'react';
 import { useContext } from 'react';
-import { Col, Image, Row } from 'react-bootstrap';
+import { Col, Image, Row, ToggleButton, ToggleButtonGroup } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -21,14 +21,19 @@ const Header = () => {
   }
 
     return (
-        <div>
+        <div className='bg-light'>
              <Navbar collapseOnSelect expand="lg" bg="light" variant="light" className='mb-4'>
       <Container className='header'>
         <Row>
-       <Col> <Navbar.Brand className='logo'> <img src={logo} alt="" srcset="" /> <Link to="/"> Prime<strong>TECH</strong></Link> 
+
+          {/* Website logo and name */}
+       <Col> <Navbar.Brand className='logo'> <img src={logo} alt="" srcset="" /> <Link to="/" className='text-dark'> Prime<strong>TECH</strong></Link> 
         </Navbar.Brand></Col>
+
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Col xs={8}>
+
+       {/* Middle nav links */}
+        <Col xs={8}> 
         <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="me-auto">
            <Link to="/courses">Courses</Link>
@@ -37,7 +42,17 @@ const Header = () => {
             <Link to="/others">Others</Link>
             
           </Nav>
+
+          {/* Right side nav links */}
           <Nav>
+          <ToggleButtonGroup type="radio" name="options" defaultValue={1}>
+        <ToggleButton id="tbg-radio-1" value={1}>
+          Light
+        </ToggleButton>
+        <ToggleButton id="tbg-radio-2" value={2}>
+          Dark
+        </ToggleButton>
+      </ToggleButtonGroup>
             {
             user?.uid ?
             <>
